@@ -1,9 +1,9 @@
 #!/usr/bin/python3
-for i in range(97, 123):
-    if i == 101:
-        i = i + 1
+for alpha in range(97, 123):
+    if alpha == 101:
+        alpha += 1
         continue
-    if i == 113:
-        i = i + 1
+    if alpha == 113:
+        alpha += 1
         continue
-    print("{:c}".format(i), end="")
+    print('{:c}'.format(i), end='')
