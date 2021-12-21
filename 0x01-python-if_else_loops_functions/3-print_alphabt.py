@@ -6,4 +6,4 @@ for alpha in range(97, 123):
     if alpha == 113:
         alpha += 1
         continue
-    print('{:c}'.format(i), end='')
+    print('{:c}'.format(alpha), end='')
