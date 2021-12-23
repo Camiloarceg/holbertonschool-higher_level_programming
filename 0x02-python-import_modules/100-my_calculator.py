@@ -6,8 +6,7 @@ from sys import argv
 
 
 def main():
-    length = len(argv) - 1
-    if length != 3:
+    if len(argv) != 4:
         print('Usage: ./100-my_calculator.py <a> <operator> <b>')
         exit(1)
     a = argv[1]
