@@ -21,9 +21,9 @@ def main():
             result = functions[i]
             print('{} {} {} = {}'.format(a, operator, b, result))
             break
-        else:
-            print('Unknown operator. Available operators: +, -, * and /')
-            exit(1)
+
+    print('Unknown operator. Available operators: +, -, * and /')
+    exit(1)
 
 
 if __name__ == "__main__":
