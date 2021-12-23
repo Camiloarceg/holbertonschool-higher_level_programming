@@ -2,6 +2,7 @@
 
 from sys import argv
 
+
 def main():
     add = 0
     length = len(argv) - 1
