@@ -10,7 +10,7 @@ def main():
         print('{} arguments.'.format(length))
     elif length == 1:
         print('{} argument:'.format(length))
-        print('{}: {}'.format(length, argv[0]))
+        print('{}: {}'.format(length, argv[1]))
     else:
         print('{} arguments:'.format(length))
         for i in range(1, length + 1):
