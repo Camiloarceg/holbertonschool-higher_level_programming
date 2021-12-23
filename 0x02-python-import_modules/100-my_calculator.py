@@ -14,7 +14,8 @@ def main():
     operator = argv[2]
     b = argv[3]
     operators = ['+', '-', '*', '/']
-    functions = [add(int(a), int(b)), sub(int(a), int(b)), mul(int(a), int(b)), div(int(a), int(b))]
+    functions = [add(int(a), int(b)), sub(int(a),
+                 int(b)), mul(int(a), int(b)), div(int(a), int(b))]
 
     for i in range(len(operators)):
         if operator == operators[i]:
