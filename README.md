@@ -43,3 +43,18 @@ In thus Repo I'll be presenting my work on Python.
 - How to use the built-in function dir()
 - How to prevent code in your script from being executed when imported
 - How to use command line arguments with your Python programs
+
+## 0x03. Python - Data Structures: Lists, Tuples ##
+
+- Why Python programming is awesome
+- What are lists and how to use them
+- What are the differences and similarities between strings and lists
+- What are the most common methods of lists and how to use them
+- How to use lists as stacks and queues
+- What are list comprehensions and how to use them
+- What are tuples and how to use them
+- When to use tuples versus lists
+- What is a sequence
+- What is tuple packing
+- What is sequence unpacking
+- What is the del statement and how to use it
