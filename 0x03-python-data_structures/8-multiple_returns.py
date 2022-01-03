@@ -2,5 +2,8 @@
 
 
 def multiple_returns(sentence):
-    the_tuple = (len(sentence), sentence[0])
+    if sentence:
+        the_tuple = (len(sentence), sentence[0])
+    else:
+        the_tuple = (0, 'None')
     return te_tuple
