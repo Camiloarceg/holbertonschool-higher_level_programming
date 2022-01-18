@@ -3,32 +3,15 @@
 
 
 class Square:
-    """Square class with an constructor"""
+    """Initializes class square"""
     def __init__(self, size=0):
-        """constructor for the class Square
-
-        Args:
-            size (int): The size of a square
-        """
+        self.__size = size
         if not isinstance(size, int):
-            raise TypeError('size must be an integer')
+            raise TypeError("size must be an integer")
         if size < 0:
-            raise ValueError('size must be >= 0')
-        self.size = size
-
-    @property
-    def size(self):
-        """getter for size attribute
-
-        Returns:
-            [int]: size of the square
-        """
-        return self.size
+            raise ValueError("size must be >= 0")
 
     def area(self):
-        """returns the current square area
-
-        Returns:
-            [int]: Area of the Square computed
-        """
-        return self.size * self.size
+        """Calculates the area of a square"""
+        area = self.__size * self.__size
+        return area
