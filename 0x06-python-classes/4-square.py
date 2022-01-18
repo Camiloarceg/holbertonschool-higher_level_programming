@@ -1,3 +1,7 @@
+#!/usr/bin/python3
+"""defines a square by: (based on 3-square.py)"""
+
+
 class Square:
     """Square class with an constructor"""
     def __init__(self, size=0):
