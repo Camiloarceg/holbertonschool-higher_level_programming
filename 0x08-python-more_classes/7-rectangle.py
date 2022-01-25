@@ -1,9 +1,9 @@
 #!/usr/bin/python3
-""" Module with a class rectangle """
+"""Module with a class rectangle"""
 
 
 class Rectangle:
-    """ A rectangle class """
+    """A rectangle class"""
 
     number_of_instances = 0
     print_symbol = '#'
@@ -57,5 +57,6 @@ class Rectangle:
         return ('Rectangle({}, {})'.format(self.width, self.height))
 
     def __del__(self):
-        print('Bye rectangle...')
         Rectangle.number_of_instances -= 1
+        print('Bye rectangle...')
+        
