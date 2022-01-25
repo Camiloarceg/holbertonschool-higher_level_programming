@@ -7,14 +7,9 @@ class Rectangle:
 
     number_of_instances = 0
     print_symbol = '#'
-
+    """Initializes class rectangle"""
     def __init__(self, width=0, height=0):
-        """ Rectangle constructor.
-
-        Args:
-            width (int): the width of the rectangle.
-            height (int): the height of the rectangle.
-        """
+        """ Rectangle constructor. """
 
         self.height = height
         self.width = width
@@ -70,7 +65,6 @@ class Rectangle:
         """ generates a string printable of the rectangle """
 
         rectangle = ''
-
         if self.width == 0 or self.height == 0:
             return rectangle
         rectangle = (((self.width * str(self.print_symbol)) + '\n')
