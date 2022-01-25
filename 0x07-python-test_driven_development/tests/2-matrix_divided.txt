@@ -1,0 +1,132 @@
+---------- Importing the ``matrix_divided`` function ----------
+	>>> matrix_divided = __import__('2-matrix_divided').matrix_divided
+
+    ==================== Principal requirements checkers ====================
+
+
+	---------- Check that the file is executable ----------
+	>>> import os
+	>>> os.access('2-matrix_divided.py', os.X_OK)
+	True
+
+	---------- Check for the documentation of the module ----------
+	>>> len(__import__("2-matrix_divided").__doc__) > 10
+	True
+
+	---------- Check for the documentation of the function ----------
+	>>> len(__import__("2-matrix_divided").matrix_divided.__doc__) > 10
+	True
+
+	---------- Check for pep8 style ----------
+	>>> os.popen("pep8 2-matrix_divided.py").read()
+	''
+
+	---------- Check for a newline at the end of the file ----------
+	>>> os.popen("cat -e 2-matrix_divided.py | tail -1").read()[-1]
+	'\n'
+
+	---------- Check for the file has a shebang ----------
+	>>> os.popen("cat 2-matrix_divided.py | head -1").read()
+	'#!/usr/bin/python3\n'
+
+	---------- Check that the README file exists ----------
+	>>> cwd = os.getcwd()
+	>>> check_readme = cwd + '/README.md'
+	>>> os.path.exists(check_readme)
+	True
+
+    ==================== Correct operation of the program ====================
+
+    ---------- With integers ----------
+
+    >>> matrix = [
+    ...     [1, 2, 3],
+    ...     [4, 5, 6]
+    ...     ]
+	>>> matrix_divided(matrix, 2)
+	[[0.5, 1.0, 1.5], [2.0, 2.5, 3.0]]
+
+    >>> matrix_divided(matrix, 3.61)
+    [[0.28, 0.55, 0.83], [1.11, 1.39, 1.66]]
+
+    ---------- With floats ---------
+
+    >>> matrix = [
+    ...     [73.26, 85.25, 12.56],
+    ...     [32.15, 89.54, 78.45]
+    ...     ]
+    >>> matrix_divided(matrix, 2)
+    [[36.63, 42.62, 6.28], [16.07, 44.77, 39.23]]
+
+    >>> matrix_divided(matrix, 9.46)
+    [[7.74, 9.01, 1.33], [3.4, 9.47, 8.29]]
+
+    ---------- With an empty matrix ----------
+    >>> matrix = [
+    ...        [], 
+    ...        []
+    ...        ]
+    >>> matrix_divided(matrix, 5)
+    [[], []]
+
+    >>> matrix_divided(matrix, 6.25)
+    [[], []]
+
+    ==================== Testing with edge cases ====================
+
+    ---------- Invalid values within the matrix ----------
+
+    >>> matrix = [
+    ...        [1, 2.56, 'z'],
+    ...        ["oasis", 'ver', float('inf')]
+    ...        ]
+    >>> matrix_divided(matrix, 2)
+    Traceback (most recent call last):
+    ...
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+    ---------- Rows of different size within the matrix ----------
+
+    >>> matrix = [
+    ...        [1, 2, 3],
+    ...        [4, 5, 6, 7]
+    ...        ]
+    >>> matrix_divided(matrix, 7)
+    Traceback (most recent call last):
+    ...
+    TypeError: Each row of the matrix must have the same size
+
+    ---------- The ``div`` parameter is not a number ----------
+
+    >>> matrix = [
+    ...        [1, 2, 3],
+    ...        [4, 5, 6]
+    ...        ]
+    >>> matrix_divided(matrix, 'p')
+    Traceback (most recent call last):
+    ...
+    TypeError: div must be a number
+
+    >>> matrix = [
+    ...        [1, 2, 3],
+    ...        [4, 5, 6],
+    ...        [1, 2, 3],
+    ...        [4, 5, 6]
+    ...        ]
+    >>> matrix_divided(matrix, 'School')
+    Traceback (most recent call last):
+    ...
+    TypeError: div must be a number
+
+    ---------- Math error ``division by 0`` ----------
+
+    >>> matrix = [
+    ...        [1, 2, 3],
+    ...        [4, 5, 6],
+    ...        [1, 2, 3],
+    ...        [4, 5, 6]
+    ...        ]
+    >>> matrix_divided(matrix, 0)
+    Traceback (most recent call last):
+    ...
+    ZeroDivisionError: division by zero
