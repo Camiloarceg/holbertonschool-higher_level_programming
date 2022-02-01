@@ -1,7 +1,8 @@
 #!/usr/bin/python3
-""" class MyList that inherits from list """
+""" Class MyList that inherits from list """
+
 
 class MyList(list):
-    """ prints the list, but sorted (ascending sort) """
+    """ Function for attributes """
     def print_sorted(self):
         print(sorted(self))
