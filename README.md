@@ -149,7 +149,7 @@ What is OOP
 - What are the built-in immutable types
 - How does Python pass variables to functions
 
-# 0x0A. Python - Inheritance #
+## 0x0A. Python - Inheritance ##
 
 - Why Python programming is awesome
 - What is a superclass, baseclass or parentclass
@@ -163,3 +163,19 @@ What is OOP
 - Which attributes or methods are available by heritage to subclasses
 - What is the purpose of inheritance
 - What are, when and how to use isinstance, issubclass, type and super built-in functions
+
+## 0x0B. Python - Input/Output ##
+
+- Why Python programming is awesome
+- How to open a file
+- How to write text in a file
+- How to read the full content of a file
+- How to read a file line by line
+- How to move the cursor in a file
+- How to make sure a file is closed after using it
+- What is and how to use the with statement
+- What is JSON
+- What is serialization
+- What is deserialization
+- How to convert a Python data structure to a JSON string
+- How to convert a JSON string to a Python data structure
