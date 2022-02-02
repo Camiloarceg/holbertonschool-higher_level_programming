@@ -11,8 +11,7 @@ def pascal_triangle(n):
         for j in range(nivel, -1, -1):
             valor = factorial(nivel)/(factorial(j)*factorial(nivel-j))
             list[nivel].append(int(valor))
-        print(list[nivel], end="")
-        print()
+    return list
 
 
 def factorial(n):
