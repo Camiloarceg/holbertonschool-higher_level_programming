@@ -10,6 +10,4 @@ try:
 except FileNotFoundError:
     content = []
 
-for i in sys.argv[1:]:
-    content.append(i)
-save_to_json_file(content, "add_item.json")
+save_to_json_file(listing + sys.argv[1:], "add_item.json")
