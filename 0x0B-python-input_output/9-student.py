@@ -1,14 +1,15 @@
 #!/usr/bin/python3
-""" Module with a class student """
+""" Class Student that defines a student by """
 
 
-class Student():
-    """ student class for the project """
-
+class Student:
+    """ Create class Student """
     def __init__(self, first_name, last_name, age):
+        """ Initialize class """
         self.first_name = first_name
         self.last_name = last_name
         self.age = age
 
-    def class_to_json(obj):
-        return obj.__dict__
+    def to_json(self):
+        """ Retrieves a dictionary representation of a Student instance """
+        return self.__dict__
