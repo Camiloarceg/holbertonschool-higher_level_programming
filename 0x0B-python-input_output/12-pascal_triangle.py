@@ -5,9 +5,9 @@
 def pascal_triangle(n):
     """ asfsfasgdsgdgs efsgwsegs """
 
-    if n <= 0:
-        return list = []
     list = []
+    if n <= 0:
+        return list
     for nivel in range(n):
         list.append([])
         for j in range(nivel, -1, -1):
