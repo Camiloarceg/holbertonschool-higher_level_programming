@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """ Base unit testing """
 import unittest
-import pep8
 import inspect
 import json
 from models import base
@@ -15,20 +14,6 @@ class TestBaseTypos(unittest.TestCase):
     def setUpClass(cls):
         """ Set up for tests """
         cls.base_funcs = inspect.getmembers(Base, inspect.isfunction)
-
-    def test_pep8(self):
-        """ Test that models/base.py conforms to PEP8 """
-        pep8style = pep8.StyleGuide(quiet=True)
-        result = pep8style.check_files(['models/base.py'])
-        self.assertEqual(result.total_errors, 0,
-                         "Found code style errors (and warnings).")
-
-    def test_pep8_base(self):
-        """ Test the test file xD """
-        pep8style = pep8.StyleGuide(quiet=True)
-        result = pep8style.check_files(['tests/test_models/test_base.py'])
-        self.assertEqual(result.total_errors, 0,
-                         "Found code style errors (and warnings).")
 
     def test_module(self):
         """ Tests module """
