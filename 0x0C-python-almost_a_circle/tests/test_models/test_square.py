@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """ Square class uni testing """
 import unittest
-import pep8
 import inspect
 import io
 import json
@@ -19,20 +18,6 @@ class TestSquareDocs(unittest.TestCase):
     def setUpClass(cls):
         """ Set up for test cases """
         cls.sq_funcs = inspect.getmembers(Square, inspect.isfunction)
-
-    def test_pep8_conformance_square(self):
-        """ Chec if class acomplish PEP8 """
-        pep8style = pep8.StyleGuide(quiet=True)
-        result = pep8style.check_files(['models/square.py'])
-        self.assertEqual(result.total_errors, 0,
-                         "Found code style errors (and warnings).")
-
-    def test_pep8_conformance_test_rectangle(self):
-        """ Check that test file acomplish PEP8 """
-        pep8style = pep8.StyleGuide(quiet=True)
-        result = pep8style.check_files(['tests/test_models/test_square.py'])
-        self.assertEqual(result.total_errors, 0,
-                         "Found code style errors (and warnings).")
 
     def test_module_docstring(self):
         """ Test module documentation """
