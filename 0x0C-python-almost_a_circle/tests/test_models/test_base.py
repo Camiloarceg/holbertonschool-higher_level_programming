@@ -33,5 +33,6 @@ class test_base(unittest.TestCase):
         b4 = Base(-13)
         self.assertEqual(-13, b4.id)
 
+
 if __name__ == '__main__':
     unittest.main()
