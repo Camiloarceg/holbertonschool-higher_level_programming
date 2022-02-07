@@ -8,7 +8,7 @@ class Base:
 
     __nb_objects = 0
     def __init__(self, id=None):
-
+        """ The Class constructor for Base class """
         if id is not None:
             self.id = id
         else:
@@ -17,12 +17,14 @@ class Base:
 
     @staticmethod
     def to_json_string(list_dictionaries):
+        """ static method for convert python obj to json """
         if list_dictionaries is None:
             return "[]"
         return json.dumps(list_dictionaries)
 
     @classmethod
     def save_to_file(cls, list_objs):
+        """ writes the JSON string representation of list_objs to a file """
         the_file = '{}.json'.format(cls.__name__)
         dictionary = []
         if list_objs is not None:
