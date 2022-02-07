@@ -8,6 +8,7 @@ class Base:
 
     __nb_objects = 0
     def __init__(self, id=None):
+
         """ The Class constructor for Base class """
         if id is not None:
             self.id = id
@@ -33,3 +34,32 @@ class Base:
 
         with open(the_file, mode="w", encoding="utf-8") as myFile:
             myFile.write(cls.to_json_string(dictionary))
+
+    @staticmethod
+    def from_json_string(json_string):
+        """ returns the list of the JSON string representation json_string """
+        if json_string is None:
+            return []
+        return json.loads(json_string)
+
+    @classmethod
+    def create(cls, **dictionary):
+        """ returns an instance with all attributes already set """
+        dummy = cls(1, 1)
+        dummy.update(**dictionary)
+        return dummy
+
+    @classmethod
+    def load_from_file(cls):
+        """  returns a list of instances """
+        file_name = "{}.json".format(cls.__name__)
+        instances = []
+        try:
+            with open(file_name, mode="r", encoding="utf-8") as myFile:
+                json_file = myFile.read()
+        except FileNotFoundError:
+            return instances
+        python_objs = cls.from_json_string(json_file)
+        for obj in python_objs:
+            instances.append(cls.create(**obj))
+        return instances
