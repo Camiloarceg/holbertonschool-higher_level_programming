@@ -1,6 +1,5 @@
 #!/usr/bin/python3
-"""Unittest cases for Base class"""
-
+""" Rectangle class unit testing """
 import unittest
 import pep8
 import inspect
@@ -42,6 +41,11 @@ class TestRectangleDoc(unittest.TestCase):
     def test_class_docstring(self):
         """ Checks class docstrings """
         self.assertTrue(len(Rectangle.__doc__) >= 1)
+
+    def test_func_docstrings(self):
+        """ Checks functions docs """
+        for func in self.rect_funcs:
+            self.assertTrue(len(func[1].__doc__) >= 1)
 
 
 class TestRectangle(unittest.TestCase):
@@ -223,6 +227,30 @@ class TestRectangle(unittest.TestCase):
         r.update(89, 2, 3, 4, 5)
         self.assertEqual(str(r), "[Rectangle] (89) 4/5 - 2/3")
 
+    def test_update_args_setter(self):
+        """ Update class through args """
+        r = Rectangle(1, 1, 0, 0, 1)
+        with self.assertRaisesRegex(TypeError, "width must be an integer"):
+            r.update(1, "hello")
+        with self.assertRaisesRegex(TypeError, "height must be an integer"):
+            r.update(1, 1, "hello")
+        with self.assertRaisesRegex(TypeError, "x must be an integer"):
+            r.update(1, 1, 1, "hello")
+        with self.assertRaisesRegex(TypeError, "y must be an integer"):
+            r.update(1, 1, 1, 1, "hello")
+        with self.assertRaisesRegex(ValueError, "width must be > 0"):
+            r.update(1, 0)
+        with self.assertRaisesRegex(ValueError, "width must be > 0"):
+            r.update(1, -1)
+        with self.assertRaisesRegex(ValueError, "height must be > 0"):
+            r.update(1, 1, 0)
+        with self.assertRaisesRegex(ValueError, "height must be > 0"):
+            r.update(1, 1, -1)
+        with self.assertRaisesRegex(ValueError, "x must be >= 0"):
+            r.update(1, 1, 1, -1)
+        with self.assertRaisesRegex(ValueError, "y must be >= 0"):
+            r.update(1, 1, 1, 1, -1)
+
     def test_update_too_many_args(self):
         """ Send many arguments to update """
         r = Rectangle(1, 1, 0, 0, 1)
@@ -247,6 +275,30 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(str(r), "[Rectangle] (89) 5/3 - 4/10")
         r.update(x=6, height=7, y=8, width=9)
         self.assertEqual(str(r), "[Rectangle] (89) 6/8 - 9/7")
+
+    def test_update_kwargs_setter(self):
+        """ Validate kwargs errors """
+        r = Rectangle(1, 1, 1, 1, 1)
+        with self.assertRaises(TypeError):
+            r.update(width="hello")
+        with self.assertRaises(TypeError):
+            r.update(height="hello")
+        with self.assertRaises(TypeError):
+            r.update(x="hello")
+        with self.assertRaises(TypeError):
+            r.update(y="hello")
+        with self.assertRaises(ValueError):
+            r.update(width=-1)
+        with self.assertRaises(ValueError):
+            r.update(width=0)
+        with self.assertRaises(ValueError):
+            r.update(height=-1)
+        with self.assertRaises(ValueError):
+            r.update(height=0)
+        with self.assertRaises(ValueError):
+            r.update(x=-1)
+        with self.assertRaises(ValueError):
+            r.update(y=-1)
 
     def test_mix_args_kwargs(self):
         """ Send args and kwargs mix arguments """

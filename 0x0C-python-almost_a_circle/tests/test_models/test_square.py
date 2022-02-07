@@ -1,6 +1,5 @@
 #!/usr/bin/python3
-"""Unittest cases for Square class"""
-
+""" Square class uni testing """
 import unittest
 import pep8
 import inspect
@@ -42,6 +41,11 @@ class TestSquareDocs(unittest.TestCase):
     def test_class_docstring(self):
         """ Checks classdocumentation """
         self.assertTrue(len(Square.__doc__) >= 1)
+
+    def test_func_docstrings(self):
+        """ Check functions documentation """
+        for func in self.sq_funcs:
+            self.assertTrue(len(func[1].__doc__) >= 1)
 
 
 class TestSquare(unittest.TestCase):

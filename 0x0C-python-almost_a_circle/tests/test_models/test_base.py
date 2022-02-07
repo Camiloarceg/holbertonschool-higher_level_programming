@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+""" Base unit testing """
 import unittest
 import pep8
 import inspect
@@ -36,6 +37,11 @@ class TestBaseTypos(unittest.TestCase):
     def test_class(self):
         """ Tests class """
         self.assertTrue(len(Base.__doc__) >= 1)
+
+    def test_funcions(self):
+        """ Tests functions """
+        for func in self.base_funcs:
+            self.assertTrue(len(func[1].__doc__) >= 1)
 
 
 class TestBaseFunctions(unittest.TestCase):
