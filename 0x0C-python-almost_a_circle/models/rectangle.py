@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 """ Module containing the rectangle class """
+import json
 from models.base import Base
 
 
