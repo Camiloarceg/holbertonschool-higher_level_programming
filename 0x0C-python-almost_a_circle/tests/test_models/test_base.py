@@ -1,37 +1,41 @@
 #!/usr/bin/python3
+"""Unittest for max_integer([..])
+"""
+
 import unittest
-import json
 from models.base import Base
-from models.rectangle import Rectangle
-from models.square import Square
 
-"""
-Test case
-"""
-
-
-class test_base(unittest.TestCase):
-    """ test class """
-    def test_id_none(self):
-        """ None id """
+class TestBase(unittest.TestCase):
+    def test_int_base_is_None(self):
         b1 = Base()
-        self.assertEqual(1, b1.id)
+        self.assertEqual(b1.id, 2)
+        b2 = Base()
+        self.assertEqual(b2.id, 3)
+        b3 = Base()
+        self.assertEqual(b3.id, 4)
 
-    def test_id_zero(self):
-        """ id zero """
-        b2 = Base(0)
-        self.assertEqual(0, b2.id)
+    def test_int_base(self):
+        b4 = Base(12)
+        self.assertEqual(b4.id, 12)
+        b5 = Base()
+        self.assertEqual(b5.id, 1)
 
-    def test_id_string(self):
-        """ id is not an integer """
-        b3 = Base("base")
-        self.assertEqual("base", b3.id)
-        self.assertIsInstance(b3, Base)
+    def test_json_string(self):
+        dictionary = {'x': 1, 'y': 9, 'id': 1, 'height': 2, 'width': 10}
+        self.assertEqual(Base.to_json_string([dictionary]), '[{"x": 1, "y": 9, "id": 1, "height": 2, "width": 10}]')
+        dictionary = []
+        self.assertEqual(Base.to_json_string(dictionary), '[]')
 
-    def test_id_negative(self):
-        """ id is negative number"""
-        b4 = Base(-13)
-        self.assertEqual(-13, b4.id)
+    def test_json_error(self):
+        dictionary = 'a'
+        self.assertIsNotNone(Base.to_json_string(dictionary), '[]')
+        dictionary = ()
+        self.assertIsNotNone(Base.to_json_string(dictionary), '[]')
 
-if __name__ == '__main__':
-    unittest.main()
+    def test_from_json_string(self):
+        list_input = [
+        {'id': 89, 'width': 10, 'height': 4}, 
+        {'id': 7, 'width': 1, 'height': 7}
+        ]
+        json_list_input = Base.to_json_string(list_input)
+        self.assertEqual(Base.from_json_string(json_list_input), [{'id': 89, 'width': 10, 'height': 4}, {'id': 7, 'width': 1, 'height': 7}])
