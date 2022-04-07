@@ -15,7 +15,7 @@ fs.readFile(args[3], function (err, data) {
   if (err) {
     return console.error(err);
   }
-  fs.writeFile(args[4], '\n' + data,
+  fs.writeFile(args[4], data,
     {
       encoding: 'utf8',
       flag: 'a',
