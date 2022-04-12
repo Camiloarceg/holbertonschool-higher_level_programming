@@ -242,3 +242,10 @@ What is OOP
 - What is a closure
 - What is a prototype
 - How to inherit an object from another
+
+## 0x14-javascript-web_scraping
+
+- Why JavaScript programming is amazing
+- How to manipulate JSON data
+- How to use request and fetch API
+- How to read and write a file using fs module
