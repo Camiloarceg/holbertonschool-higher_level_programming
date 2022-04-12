@@ -10,7 +10,7 @@ request(url, function (err, response, body) {
   let wedgeAntilles = 0;
   JSON.parse(body).results.forEach(movie => {
     movie.characters.forEach(character => {
-      if (character === 'https://swapi-api.hbtn.io/api/people/18/') {
+      if (character.includes('18')) {
         wedgeAntilles += 1;
       }
     });
