@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Start link class to table in database 
+"""Start link class to table in database
 """
 import sys
 from model_state import Base, State
@@ -14,7 +14,8 @@ if __name__ == "__main__":
             "pass": sys.argv[2],
             "db": sys.argv[3]
             }
-    engine = create_engine('mysql+mysqldb://{user}:{pass}@{host}:{port}/{db}'.format(**db_parameters), pool_pre_ping=True)
+    engine = create_engine('mysql+mysqldb://{user}:{pass}@{host}:{port}/{db}'
+                           .format(**db_parameters), pool_pre_ping=True)
     Base.metadata.create_all(engine)
     Session = sessionmaker(bind=engine)
     session = Session()
