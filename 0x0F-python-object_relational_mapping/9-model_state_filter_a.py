@@ -20,6 +20,7 @@ if __name__ == "__main__":
     Base.metadata.create_all(engine)
     Session = sessionmaker(bind=engine)
     session = Session()
-    result = session.query(State).filter(State.name.like('%a%') ).order_by(State.id).all()
+    result = session.query(State).filter(State.name.like('%a%')).order_by(
+        State.id).all()
     for states in result:
         print("{}: {}".format(states.id, states.name))
