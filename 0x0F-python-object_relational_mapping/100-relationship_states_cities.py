@@ -23,7 +23,7 @@ if __name__ == "__main__":
 
     Session = sessionmaker(bind=engine)
     session = Session()
-    session.add(State(name='California'), City(name='San Francisco'))
+    session.add(State(name='California'), City(name='San Francisco', ))
     session.commit()
 
     #result = session.query(State).filter(State.name.like('California')).all()
