@@ -11,7 +11,7 @@ class City(Base):
     """ City class inherits from Base
     """
     __tablename__ = 'cities'
-    states = relationship("State")
+    states = relationship("State", overlaps="cities")
     id = Column(Integer, primary_key=True, unique=True, nullable=False)
     name = Column(String(128), nullable=False)
     state_id = Column(Integer, ForeignKey('states.id'), nullable=False)
