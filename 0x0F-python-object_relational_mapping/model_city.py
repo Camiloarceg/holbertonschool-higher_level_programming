@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-    Python file that contains the class definition of a State and an instance
+    Python file that contains the class definition of a City and an instance
 """
 from sqlalchemy import Column, Integer, String, ForeignKey
 from sqlalchemy.ext.declarative import declarative_base
@@ -9,7 +9,7 @@ Base = declarative_base()
 
 
 class City(Base):
-    """ State class inherits from Base
+    """ City class inherits from Base
     """
     __tablename__ = 'cities'
     id = Column(Integer, primary_key=True,autoincrement=True, unique=True, nullable=False)
